@@ -256,16 +256,15 @@ function multi(el,k,v){
   document.getElementById('next-btn').disabled=!M[k]||M[k].length===0;
 }
 function goNext(){
-  if(step<TOTAL-1){
-    document.getElementById('s'+step).classList.remove('active');step++;
-    document.getElementById('s'+step).classList.add('active');
-    document.getElementById('back-btn').disabled=false;
-    var req=REQ[step];
-    if(step===7)document.getElementById('next-btn').disabled=!M.bed||M.bed.length===0;
-    else document.getElementById('next-btn').disabled=req?!A[req]:false;
-    updateProg();
-    if(step===TOTAL-1){document.getElementById('next-btn').textContent='Find my motorhome ';document.getElementById('next-btn').disabled=false;}
-  } else showResults();
+  if(step===TOTAL-1){showResults();return;}
+  document.getElementById('s'+step).classList.remove('active');step++;
+  document.getElementById('s'+step).classList.add('active');
+  document.getElementById('back-btn').disabled=false;
+  var req=REQ[step];
+  if(step===7)document.getElementById('next-btn').disabled=!M.bed||M.bed.length===0;
+  else document.getElementById('next-btn').disabled=req?!A[req]:false;
+  updateProg();
+  if(step===TOTAL-1){document.getElementById('next-btn').textContent='Find my motorhome 🏠';document.getElementById('next-btn').disabled=false;}
 }
 function goBack(){
   document.getElementById('s'+step).classList.remove('active');step--;
