@@ -86,6 +86,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mc-also{font-size:12px;color:#666;margin-bottom:8px}
 .conv-links{display:flex;flex-wrap:wrap;gap:6px}
 .conv-pill{font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #d0d0cc;background:#fff;color:#1a1a1a;text-decoration:none;transition:background .15s}
+.conv-brand-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:9px 16px;border-radius:8px;background:#1D9E75;color:#fff;text-decoration:none;margin:0 6px 6px 0;transition:background .15s}
+.conv-brand-btn:hover{background:#0F6E56}
 .conv-pill:hover{background:#f0f0ee}
 .at-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
 .lbtn{font-size:12px;padding:6px 13px;border-radius:8px;border:1.5px solid #d0d0cc;background:transparent;color:#1a1a1a;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:background .15s}
@@ -1083,23 +1085,24 @@ function showResults(){
 
     // other converters for this van that do not have model data
     const allConvNames={
-      vw_t6:["Danbury","Bilbo's","Jerba","Jobl","Leisuredrive"],
+      vw_t6:["Danbury","Bilbo's","Jerba","Jobl","Leisuredrive","Hillside"],
       ford_transit_custom:["Wellhouse","Auto Campers","Danbury"],
       ford_transit_full:["WildAx","Murvi","Devon Conversions"],
       mercedes_sprinter:["Murvi","Vantage","Devon Conversions"],
-      fiat_ducato:["WildAx","Hillside","Consort","Murvi","Vantage"],
-      vw_crafter:["Vantage"],
+      fiat_ducato:["WildAx","Consort","Murvi","Vantage"],
+      vw_crafter:["Vantage","Hillside","WildAx"],
       toyota_proace:["Wellhouse"],
-      iveco_daily:[],renault_trafic:["Leisuredrive"],mazda_bongo:[],defender:[]
+      iveco_daily:["PF Jones","Yeti Conversions"],
+      renault_trafic:["Leisuredrive"],
+      mazda_bongo:["Bongo Mad"],
+      defender:["Brown Bird & Co","Dormobile"]
     };
-    const convUrls={"Danbury":"https://www.danburycampervans.co.uk","Bilbo's":"https://www.bilbos.com","Jerba":"https://www.jerbacampervans.co.uk","Jobl":"https://www.joblcampervans.com","Leisuredrive":"https://www.leisuredrivemotorhomes.co.uk","Wellhouse":"https://wellhouseleisure.com","Auto Campers":"https://www.auto-campers.co.uk","WildAx":"https://wildaxmotorhomes.com","Murvi":"https://www.murvi.co.uk","Devon Conversions":"https://www.devonconversions.co.uk","Hillside":"https://www.hillsideleisure.co.uk","Consort":"https://consortmotorhomes.co.uk","Vantage":"https://www.vantagemotorhomes.co.uk"};
+    const convUrls={"Danbury":"https://www.danburycampervans.co.uk","Bilbo's":"https://www.bilbos.com","Jerba":"https://www.jerbacampervans.co.uk","Jobl":"https://www.joblcampervans.com","Leisuredrive":"https://www.leisuredrivemotorhomes.co.uk","Wellhouse":"https://wellhouseleisure.com","Auto Campers":"https://www.auto-campers.co.uk","WildAx":"https://wildaxmotorhomes.com","Murvi":"https://www.murvi.co.uk","Devon Conversions":"https://www.devonconversions.co.uk","Hillside":"https://www.hillsideleisure.co.uk","Consort":"https://consortmotorhomes.co.uk","Vantage":"https://www.vantagemotorhomes.co.uk","PF Jones":"https://www.pfjones.co.uk","Yeti Conversions":"https://yeticampervanconversions.co.uk","Bongo Mad":"http://www.bongomad.co.uk","Brown Bird & Co":"https://brownbirdandcompany.co.uk","Dormobile":"https://dormobile.co.uk"};
     const shownConvs=matchedModels.map(m=>m.conv);
     const otherConvs=(allConvNames[v.id]||[]).filter(c=>!shownConvs.includes(c));
     const moreHtml=otherConvs.length?`
-      <div class="more-convs">
-        <div class="mc-also">Also worth exploring for this base vehicle:</div>
-        <div class="conv-links">${otherConvs.map(c=>`<a class="conv-pill" href="${convUrls[c]||'#'}" target="_blank">${c}</a>`).join('')}</div>
-      </div>
+      <div class="sec">conversion brands that build on this van</div>
+      <div class="conv-links">${otherConvs.map(c=>`<a class="conv-brand-btn" href="${convUrls[c]||'#'}" target="_blank">${c} →</a>`).join('')}</div>
     `:'';
 
     return`<div class="van-card ${i===0?'top':''}">
