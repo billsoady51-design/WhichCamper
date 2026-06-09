@@ -346,7 +346,7 @@ const MODELS=[
    bed:['fixed_perm'],height:'highfix',seats:4,budget:['40to70','over70'],
    desc:'The Aurora stretched to 6.36m — proper 4-berth capacity with more living space and a larger fixed bed. 2.75m high, 2.05m wide. Ideal for families or those wanting a full-size motorhome layout in a van conversion.',
    specs:['6.36m XLWB — serious space','4 berth capacity','2.75m standing height','Fixed bed with under-bed garage','4 belted seats'],
-   url:'https://wildaxmotorhomes.com/models/aurora-xl-range/'},
+   url:'https://wildaxmotorhomes.com/ranges'},
 
   // BILBOS
   {id:'bilbos_celex',conv:"Bilbo's",vanId:'vw_t6',name:"Bilbo's Celex HL",
@@ -383,7 +383,7 @@ const MODELS=[
    bed:['makeup'],height:'highfix',seats:4,budget:['40to70','over70'],
    desc:'LWB Ford Transit Custom with high-top roof — two single beds side by side that can be made into a double. 4 belted seats. Practical, well-specified and built to Wellhouse\'s famous standards. Includes Dometic oven, hob and fridge.',
    specs:["LWB Ford Transit Custom","Fixed high-top roof — stand up inside","Two single beds or double","Dometic oven and hob and fridge","4 belted seats"],
-   url:'https://wellhouseleisure.com/brands/category/ford-transit-custom-campervan-conversion/'},
+   url:'https://wellhouseleisure.com/conversions/category/ford/'},
 
   // HILLSIDE
   {id:'hillside_orion',conv:'Hillside',vanId:'fiat_ducato',name:'Hillside Orion',
@@ -391,7 +391,7 @@ const MODELS=[
    bed:['fixed_perm','dropdown'],height:'highfix',seats:4,budget:['40to70'],
    desc:'Fiat Ducato-based spacious family campervan. Fixed rear bed with drop-down option. Takes advantage of the Ducato\'s wide interior to give a proper island bed layout. Good under-bed garage storage. Practical and family-friendly spec throughout.',
    specs:["Fiat Ducato LWB base","Fixed or drop-down rear bed","Island bed layout — wide interior","Under-bed garage storage","4 belted seats — family-friendly"],
-   url:'https://www.hillsideleisure.com/'},
+   url:'https://www.hillsideleisure.co.uk/'},
 
   // MURVI
   {id:'murvi_pimento',conv:'Murvi',vanId:'fiat_ducato',name:'Murvi Pimento',
@@ -415,7 +415,7 @@ const MODELS=[
    bed:['fixed_perm','dropdown'],height:'highfix',seats:4,budget:['40to70','over70'],
    desc:'2025 Best Van Converter Award winner. Six models across three lengths on Ducato and Boxer. All come with end washroom. Consistently top-rated for owner satisfaction — a sign of genuine build quality and after-sales care. Excellent value for the spec on offer.',
    specs:["2025 Best Van Converter Award winner","6 models in 3 lengths","All models include end washroom","Fiat Ducato or Peugeot Boxer","Consistently top owner satisfaction scores"],
-   url:'https://www.consort.co.uk/'}
+   url:'https://consortmotorhomes.co.uk/'}
 ];
 
 // ── VAN DATABASE ─────────────────────────────────────────────────────────
@@ -991,7 +991,7 @@ function buildEmailCapture() {
   h += '<div style="background:linear-gradient(135deg,#1D9E75,#085041);border-radius:16px;padding:1.75rem;margin-bottom:18px;text-align:center">';
   h += '<div style="font-size:22px;margin-bottom:8px">📬</div>';
   h += '<div style="font-size:17px;font-weight:700;color:white;margin-bottom:6px">Save your results</div>';
-  h += '<div style="font-size:13px;color:#9FE1CB;margin-bottom:16px;line-height:1.5">Get your matched vans emailed to you — plus we'll alert you when a matching van appears on AutoTrader</div>';
+  h += '<div style="font-size:13px;color:#9FE1CB;margin-bottom:16px;line-height:1.5">Get your matched vans emailed to you — plus we will alert you when a matching van appears on AutoTrader</div>';
   h += '<div style="display:flex;gap:8px;max-width:420px;margin:0 auto">';
   h += '<input type="email" id="email-capture" placeholder="your@email.com" style="flex:1;padding:10px 14px;border-radius:8px;border:none;font-size:13px;outline:none">';
   h += '<button onclick="submitEmail()" style="padding:10px 18px;border-radius:8px;background:#F97316;border:none;color:white;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap">Send my results</button>';
@@ -1081,7 +1081,7 @@ function showResults(){
       </div>
     `:'';
 
-    // other converters for this van that don't have model data
+    // other converters for this van that do not have model data
     const allConvNames={
       vw_t6:["Danbury","Bilbo's","Jerba","Jobl","Leisuredrive"],
       ford_transit_custom:["Wellhouse","Auto Campers","Danbury"],
@@ -1092,7 +1092,7 @@ function showResults(){
       toyota_proace:["Wellhouse"],
       iveco_daily:[],renault_trafic:["Leisuredrive"],mazda_bongo:[],defender:[]
     };
-    const convUrls={"Danbury":"https://www.danburycampervans.co.uk","Bilbo's":"https://www.bilbos.com","Jerba":"https://www.jerbacampervans.co.uk","Jobl":"https://www.joblcampervans.com","Leisuredrive":"https://www.leisuredrivemotorhomes.co.uk","Wellhouse":"https://wellhouseleisure.com","Auto Campers":"https://www.auto-campers.co.uk","WildAx":"https://wildaxmotorhomes.com","Murvi":"https://www.murvi.co.uk","Devon Conversions":"https://www.devonconversions.co.uk","Hillside":"https://www.hillsideleisure.com","Consort":"https://www.consort.co.uk","Vantage":"https://www.vantagemotorhomes.co.uk"};
+    const convUrls={"Danbury":"https://www.danburycampervans.co.uk","Bilbo's":"https://www.bilbos.com","Jerba":"https://www.jerbacampervans.co.uk","Jobl":"https://www.joblcampervans.com","Leisuredrive":"https://www.leisuredrivemotorhomes.co.uk","Wellhouse":"https://wellhouseleisure.com","Auto Campers":"https://www.auto-campers.co.uk","WildAx":"https://wildaxmotorhomes.com","Murvi":"https://www.murvi.co.uk","Devon Conversions":"https://www.devonconversions.co.uk","Hillside":"https://www.hillsideleisure.co.uk","Consort":"https://consortmotorhomes.co.uk","Vantage":"https://www.vantagemotorhomes.co.uk"};
     const shownConvs=matchedModels.map(m=>m.conv);
     const otherConvs=(allConvNames[v.id]||[]).filter(c=>!shownConvs.includes(c));
     const moreHtml=otherConvs.length?`

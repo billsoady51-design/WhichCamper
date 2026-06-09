@@ -38,21 +38,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .choice-card{background:#fff;border:1.5px solid #e8e8e6;border-radius:16px;padding:1.75rem 1.5rem;cursor:pointer;text-decoration:none;color:#1a1a1a;transition:border-color .2s,transform .15s,box-shadow .2s;display:block}
 .choice-card:hover{border-color:#1D9E75;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.choice-card.motorhome:hover{border-color:#2563EB}
+.choice-card.motorhome:hover{border-color:#1e3a5f}
 .choice-icon{font-size:40px;margin-bottom:12px}
 .choice-title{font-size:20px;font-weight:800;margin-bottom:6px}
 .choice-subtitle{font-size:13px;color:#888;margin-bottom:14px}
 .choice-features{list-style:none;margin-bottom:18px}
 .choice-features li{font-size:12px;color:#555;padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.4}
 .choice-features li::before{content:'✓';color:#1D9E75;font-weight:700;flex-shrink:0;margin-top:1px}
-.choice-card.motorhome .choice-features li::before{color:#2563EB}
+.choice-card.motorhome .choice-features li::before{color:#1e3a5f}
 .choice-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:10px 20px;border-radius:8px;background:#1D9E75;color:#fff;transition:background .15s}
 .choice-card:hover .choice-btn{background:#0F6E56}
-.choice-card.motorhome .choice-btn{background:#2563EB}
-.choice-card.motorhome:hover .choice-btn{background:#1d4ed8}
+.choice-card.motorhome .choice-btn{background:#1e3a5f}
+.choice-card.motorhome:hover .choice-btn{background:#1e3a5f}
 .choice-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:10px}
 .tag-van{background:#E1F5EE;color:#0F6E56}
-.tag-mh{background:#dbeafe;color:#1e40af}
+.tag-mh{background:#e2e8f0;color:#152d4a}
 
 /* HOW IT WORKS */
 .how{background:#fff;border:1.5px solid #e8e8e6;border-radius:16px;padding:2rem;margin-bottom:3rem}
@@ -179,6 +179,7 @@ footer a{color:#666;text-decoration:none}
       <a href="campervan-matcher-v4.html">Campervans</a>
       <a href="motorhome-matcher.html">Motorhomes</a>
       <a href="#how">How it works</a>
+      <a href="about.html">About</a>
     </div>
   </nav>
 
@@ -201,26 +202,31 @@ footer a{color:#666;text-decoration:none}
     <p>Choose your vehicle type to get started</p>
     <div class="choice-grid">
 
-      <!-- VAN -->
-      <a class="choice-card" href="campervan-matcher-v4.html">
-        <div class="choice-icon">🚐</div>
-        <div class="choice-tag tag-van">Van conversion</div>
-        <div class="choice-title">Campervan</div>
-        <div class="choice-subtitle">A converted panel van — drives like a car, lives like a home</div>
-        <ul class="choice-features">
-          <li>Easy to drive and park daily</li>
-          <li>VW, Mercedes, Ford, Fiat, Toyota and more</li>
-          <li>Named UK converters — Danbury, WildAx, Bilbo's, Jerba</li>
-          <li>Specific models matched to your answers</li>
-          <li>£8,000 to £95,000 budget range</li>
-          <li>17 tailored questions</li>
-        </ul>
-        <div class="choice-btn">Start van quiz →</div>
-      </a>
-
       <!-- MOTORHOME -->
       <a class="choice-card motorhome" href="motorhome-matcher.html">
-        <div class="choice-icon"></div>
+        <div class="choice-icon"><svg width="64" height="44" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 36 L2 6 Q2 2 6 2 L58 2 Q62 2 62 6 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#1e3a5f" stroke="#152d4a" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M2 30 L62 30 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#152d4a"/>
+  <rect x="36" y="5" width="23" height="18" rx="2" fill="rgba(219,234,254,0.85)" stroke="#152d4a" stroke-width="0.8"/>
+  <rect x="5" y="7" width="28" height="10" rx="1.5" fill="rgba(219,234,254,0.75)" stroke="#152d4a" stroke-width="0.8"/>
+  <rect x="5" y="19" width="28" height="8" rx="1.5" fill="rgba(219,234,254,0.6)" stroke="#152d4a" stroke-width="0.8"/>
+  <line x1="14" y1="7" x2="14" y2="17" stroke="#152d4a" stroke-width="0.8"/>
+  <line x1="23" y1="7" x2="23" y2="17" stroke="#152d4a" stroke-width="0.8"/>
+  <line x1="34" y1="2" x2="34" y2="30" stroke="#152d4a" stroke-width="1" stroke-dasharray="2,2"/>
+  <rect x="2" y="2" width="60" height="3" rx="1" fill="#1e3a5f"/>
+  <rect x="2" y="28" width="60" height="2" rx="0" fill="#1e3a5f"/>
+  <path d="M5 40 Q5 50 13 50 Q21 50 21 40" fill="#152d4a" stroke="#1e3a5f" stroke-width="1"/>
+  <path d="M43 40 Q43 50 51 50 Q59 50 59 40" fill="#152d4a" stroke="#1e3a5f" stroke-width="1"/>
+  <circle cx="13" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="13" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="13" cy="46" r="1.5" fill="#555"/>
+  <circle cx="51" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="51" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="51" cy="46" r="1.5" fill="#555"/>
+  <rect x="58" y="8" width="3" height="5" rx="1" fill="#FEF3C7"/>
+  <rect x="6" y="20" width="8" height="10" rx="1" fill="rgba(30,64,175,0.5)" stroke="#1e3a5f" stroke-width="0.8"/>
+  <circle cx="13" cy="25" r="0.8" fill="#94a3b8"/>
+</svg></div>
         <div class="choice-tag tag-mh">Coachbuilt motorhome</div>
         <div class="choice-title">Motorhome</div>
         <div class="choice-subtitle">A purpose-built leisure vehicle — more space, more facilities</div>
@@ -235,7 +241,42 @@ footer a{color:#666;text-decoration:none}
         <div class="choice-btn">Start motorhome quiz →</div>
       </a>
 
-    </div>
+    <!-- VAN -->
+      <a class="choice-card" href="campervan-matcher-v4.html">
+        <div class="choice-icon"><svg width="64" height="44" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 36 L2 14 Q2 8 7 8 L40 8 L50 4 Q54 2 58 4 L62 8 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#1D9E75" stroke="#085041" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M2 30 L62 30 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#0F6E56"/>
+  <path d="M42 4 Q54 2 58 4 L62 8 L42 8Z" fill="#085041"/>
+  <rect x="5" y="12" width="32" height="14" rx="2" fill="rgba(225,245,238,0.85)" stroke="#085041" stroke-width="0.8"/>
+  <rect x="44" y="6" width="16" height="14" rx="2" fill="rgba(225,245,238,0.75)" stroke="#085041" stroke-width="0.8"/>
+  <rect x="5" y="8" width="33" height="2.5" rx="1" fill="#085041"/>
+  <path d="M5 8 L5 3 L22 2 L38 8" fill="rgba(29,158,117,0.4)" stroke="#085041" stroke-width="0.8" stroke-linejoin="round"/>
+  <rect x="5" y="2" width="33" height="2.5" rx="1" fill="#085041"/>
+  <line x1="41" y1="8" x2="41" y2="30" stroke="#085041" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <path d="M6 40 Q6 50 14 50 Q22 50 22 40" fill="#0F6E56" stroke="#085041" stroke-width="1"/>
+  <path d="M42 40 Q42 50 50 50 Q58 50 58 40" fill="#0F6E56" stroke="#085041" stroke-width="1"/>
+  <circle cx="14" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="14" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="14" cy="46" r="1.5" fill="#555"/>
+  <circle cx="50" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="50" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="50" cy="46" r="1.5" fill="#555"/>
+</svg></div>
+        <div class="choice-tag tag-van">Van conversion</div>
+        <div class="choice-title">Campervan</div>
+        <div class="choice-subtitle">A converted panel van — drives like a car, lives like a home</div>
+        <ul class="choice-features">
+          <li>Easy to drive and park daily</li>
+          <li>VW, Mercedes, Ford, Fiat, Toyota and more</li>
+          <li>Named UK converters — Danbury, WildAx, Bilbo's, Jerba</li>
+          <li>Specific models matched to your answers</li>
+          <li>£8,000 to £95,000 budget range</li>
+          <li>17 tailored questions</li>
+        </ul>
+        <div class="choice-btn">Start van quiz →</div>
+      </a>
+
+      </div>
   </div>
 
   <!-- HOW IT WORKS -->
