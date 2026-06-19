@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="copyright" content="WhichCamper.com">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhichCamper — Find Your Perfect Van or Motorhome</title>
+<meta name="description" content="Answer a few questions and we'll match you to the perfect campervan or motorhome — including specific models, UK converter brands and where to buy.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;width:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#1a1a1a;min-height:100vh;overflow-x:hidden;max-width:100%;width:100%;position:relative}
+.wrap{max-width:760px;margin:0 auto;padding:0 1rem 3rem}
+
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;margin-bottom:0}
+.logo{font-size:18px;font-weight:800;color:#1a1a1a;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-icon{font-size:22px}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{font-size:13px;color:#666;text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:#1a1a1a}
+
+/* HERO */
+.hero{text-align:center;padding:3.5rem 1rem 3rem}
+.hero-pill{display:inline-block;font-size:11px;font-weight:700;color:#0F6E56;background:#E1F5EE;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:.05em;text-transform:uppercase}
+.hero h1{font-size:38px;font-weight:800;line-height:1.15;margin-bottom:14px;letter-spacing:-.02em}
+.hero h1 span{color:#1D9E75}
+.hero p{font-size:16px;color:#555;line-height:1.6;max-width:520px;margin:0 auto 2rem}
+.hero-stats{display:flex;justify-content:center;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:22px;font-weight:800;color:#1a1a1a}
+.stat-lbl{font-size:12px;color:#999;margin-top:2px}
+
+/* CHOICE CARDS */
+.choice-section{margin-bottom:3rem}
+.choice-section h2{font-size:20px;font-weight:700;text-align:center;margin-bottom:6px}
+.choice-section p{font-size:14px;color:#666;text-align:center;margin-bottom:1.5rem}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.choice-card{background:#fff;border:1.5px solid #e8e8e6;border-radius:16px;padding:1.75rem 1.5rem;cursor:pointer;text-decoration:none;color:#1a1a1a;transition:border-color .2s,transform .15s,box-shadow .2s;display:block}
+.choice-card:hover{border-color:#1D9E75;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.choice-card.motorhome:hover{border-color:#1e3a5f}
+.choice-icon{font-size:40px;margin-bottom:12px}
+.choice-title{font-size:20px;font-weight:800;margin-bottom:6px}
+.choice-subtitle{font-size:13.5px;color:#5a5a5a;margin-bottom:14px;line-height:1.5}
+.choice-features{list-style:none;margin-bottom:18px}
+.choice-features li{font-size:12.5px;color:#3a3a3a;padding:3.5px 0;display:flex;align-items:flex-start;gap:7px;line-height:1.45}
+.choice-features li::before{content:'✓';color:#1D9E75;font-weight:700;flex-shrink:0;margin-top:1px}
+.choice-card.motorhome .choice-features li::before{color:#1e3a5f}
+.choice-btn{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:800;padding:13px 26px;border-radius:10px;background:#16A974;color:#fff;transition:transform .12s,box-shadow .15s,background .15s;box-shadow:0 4px 14px rgba(22,169,116,0.35);letter-spacing:.01em;align-self:flex-start;margin-top:auto}
+.choice-card:hover .choice-btn{background:#0F6E56}
+.choice-card.motorhome .choice-btn{background:#1e3a5f;box-shadow:0 4px 14px rgba(30,58,95,0.35)}
+.choice-card.motorhome:hover .choice-btn{background:#1e3a5f}
+.choice-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:10px}
+.tag-van{background:#E1F5EE;color:#0F6E56}
+.tag-mh{background:#e2e8f0;color:#152d4a}
+
+/* HOW IT WORKS */
+.how{background:#fff;border:1.5px solid #e8e8e6;border-radius:16px;padding:2rem;margin-bottom:3rem}
+.how h2{font-size:18px;font-weight:700;margin-bottom:1.25rem;text-align:center}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.step-item{text-align:center;padding:.5rem}
+.step-num{width:32px;height:32px;border-radius:50%;background:#1D9E75;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.step-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.step-desc{font-size:12px;color:#666;line-height:1.4}
+
+/* WHY */
+.why{margin-bottom:3rem}
+.why h2{font-size:20px;font-weight:700;text-align:center;margin-bottom:1.25rem}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.why-card{background:#fff;border:1.5px solid #e8e8e6;border-radius:12px;padding:1.25rem}
+.why-icon{font-size:22px;margin-bottom:8px}
+.why-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.why-desc{font-size:12px;color:#666;line-height:1.4}
+
+/* BRANDS */
+.brands{text-align:center;margin-bottom:3rem}
+.brands h2{font-size:18px;font-weight:700;margin-bottom:6px}
+.brands p{font-size:13px;color:#666;margin-bottom:1.25rem}
+.brand-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.brand-pill{font-size:12px;padding:5px 14px;border-radius:20px;background:#fff;border:1.5px solid #e8e8e6;color:#555;font-weight:500}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem 0;border-top:1px solid #e8e8e6;margin-top:1rem}
+footer p{font-size:12px;color:#aaa;line-height:1.6}
+footer a{color:#666;text-decoration:none}
+
+@media(max-width:540px){
+  .hero h1{font-size:28px}
+  .choice-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.25rem}
+}
+
+@media(max-width:600px){
+  .hero h1{font-size:24px}
+  .choice-grid{grid-template-columns:1fr!important}
+  .hero-stats{gap:1rem}
+  .stat-num{font-size:18px}
+  .why-grid{grid-template-columns:1fr!important}
+  .steps-grid{grid-template-columns:1fr!important}
+  .brand-list{gap:6px}
+  .brand-pill{font-size:11px;padding:4px 10px}
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:12px}
+}
+@media(max-width:380px){
+  .wrap{padding:0 .75rem 2rem}
+  .hero h1{font-size:20px}
+  .choice-title{font-size:17px}
+  .nav-links{gap:.65rem}
+  .nav-links a{font-size:11px}
+}
+.choice-btn:hover{transform:translateY(-2px)}
+.choice-card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.09)}
+</style>
+<link rel="canonical" href="https://www.whichcamper.com/">
+
+
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjE2IiBmaWxsPSIjMUQ5RTc1Ii8+CjxlbGxpcHNlIGN4PSIxNiIgY3k9IjE2IiByeD0iMTIiIHJ5PSI4IiBmaWxsPSIjRkVGM0M3IiBvcGFjaXR5PSIwLjQiLz4KPGxpbmUgeDE9IjE2IiB5MT0iMTYiIHgyPSIxNiIgeTI9IjQiICBzdHJva2U9IiNFQTU4MEMiIHN0cm9rZS13aWR0aD0iMS40IiBvcGFjaXR5PSIwLjgiLz4KPGxpbmUgeDE9IjE2IiB5MT0iMTYiIHgyPSI4IiAgeTI9IjciICBzdHJva2U9IiNFQTU4MEMiIHN0cm9rZS13aWR0aD0iMS4xIiBvcGFjaXR5PSIwLjciLz4KPGxpbmUgeDE9IjE2IiB5MT0iMTYiIHgyPSIyNCIgeTI9IjciICBzdHJva2U9IiNFQTU4MEMiIHN0cm9rZS13aWR0aD0iMS4xIiBvcGFjaXR5PSIwLjciLz4KPGxpbmUgeDE9IjE2IiB5MT0iMTYiIHgyPSI1IiAgeTI9IjE0IiBzdHJva2U9IiNGOTczMTYiIHN0cm9rZS13aWR0aD0iMC45IiBvcGFjaXR5PSIwLjUiLz4KPGxpbmUgeDE9IjE2IiB5MT0iMTYiIHgyPSIyNyIgeTI9IjE0IiBzdHJva2U9IiNGOTczMTYiIHN0cm9rZS13aWR0aD0iMC45IiBvcGFjaXR5PSIwLjUiLz4KPHBhdGggZD0iTTkgMjAgQTcgNyAwIDAgMSAyMyAyMCBaIiBmaWxsPSIjRjk3MzE2Ii8+CjxwYXRoIGQ9Ik02IDIwIEExMCAxMCAwIDAgMSAyNiAyMCBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNGQjkyM0MiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41Ii8+CjxwYXRoIGQ9Ik0yIDI2IFE2IDE4IDEwIDIxIFExNCAyNCAxNiAxNiBRMTggOCAyMiAxOSBRMjYgMjYgMzAgMjIgTDMwIDI2IFoiIGZpbGw9IiMwNDc4NTciLz4KPHJlY3QgeD0iMiIgeT0iMjUiIHdpZHRoPSIyOCIgaGVpZ2h0PSIzIiBmaWxsPSIjMDY0RTNCIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDksMTMpIj4KICA8cGF0aCBkPSJNMCAxMCBMMCAzIFEwIDEgMiAxIEw5IDEgTDExIDAgUTEzLTAuNSAxNSAwIEwxNyAxIEwxOCAxIFEyMCAxIDIwIDMgTDIwIDEwIFEyMCAxMiAxOCAxMiBMMiAxMiBRMCAxMiAwIDEwWiIgZmlsbD0id2hpdGUiIHN0cm9rZT0iIzA4NTA0MSIgc3Ryb2tlLXdpZHRoPSIwLjYiLz4KICA8Y2lyY2xlIGN4PSI0IiAgY3k9IjEzIiByPSIyLjUiIGZpbGw9IiMxYTFhMWEiLz4KICA8Y2lyY2xlIGN4PSIxNiIgY3k9IjEzIiByPSIyLjUiIGZpbGw9IiMxYTFhMWEiLz4KPC9nPgo8L3N2Zz4=">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45ZFQVYKEW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-45ZFQVYKEW');
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="logo" href="index.html" style="display:inline-flex;align-items:center;text-decoration:none"><svg width="270" height="56" viewBox="0 0 270 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WhichCamper logo">
+<title>WhichCamper</title>
+<ellipse cx="55" cy="30" rx="40" ry="20" fill="#FEF3C7" opacity="0.5"/>
+<line x1="55" y1="30" x2="55" y2="4"  stroke="#EA580C" stroke-width="1.6" opacity="0.65"/>
+<line x1="55" y1="30" x2="34" y2="8"  stroke="#EA580C" stroke-width="1.4" opacity="0.6"/>
+<line x1="55" y1="30" x2="76" y2="8"  stroke="#EA580C" stroke-width="1.4" opacity="0.6"/>
+<line x1="55" y1="30" x2="16" y2="18" stroke="#F97316" stroke-width="1.1" opacity="0.45"/>
+<line x1="55" y1="30" x2="94" y2="18" stroke="#F97316" stroke-width="1.1" opacity="0.45"/>
+<line x1="55" y1="30" x2="6"  y2="28" stroke="#F97316" stroke-width="0.9" opacity="0.3"/>
+<line x1="55" y1="30" x2="104" y2="28" stroke="#F97316" stroke-width="0.9" opacity="0.3"/>
+<path d="M32 42 A23 23 0 0 1 78 42 Z" fill="#F97316"/>
+<path d="M27 42 A28 28 0 0 1 83 42 Z" fill="none" stroke="#FB923C" stroke-width="1.4" opacity="0.5"/>
+<path d="M21 42 A34 34 0 0 1 89 42 Z" fill="none" stroke="#FDBA74" stroke-width="1.1" opacity="0.35"/>
+<path d="M15 42 A40 40 0 0 1 95 42 Z" fill="none" stroke="#FED7AA" stroke-width="0.9" opacity="0.22"/>
+<path d="M0 50 Q14 36 26 40 Q38 46 55 32 Q66 20 80 38 Q92 48 110 44 L110 50 Z" fill="#047857"/>
+<path d="M0 50 Q14 36 26 40 Q38 46 55 32 Q66 20 80 38 Q92 48 110 44" fill="none" stroke="#065F46" stroke-width="1.1" stroke-linejoin="round"/>
+<rect x="0" y="49" width="110" height="3.5" fill="#064E3B"/>
+<rect x="8"  y="50" width="5" height="1.4" rx="0.7" fill="#6EE7B7" opacity="0.6"/>
+<rect x="28" y="50" width="5" height="1.4" rx="0.7" fill="#6EE7B7" opacity="0.6"/>
+<rect x="50" y="50" width="5" height="1.4" rx="0.7" fill="#6EE7B7" opacity="0.6"/>
+<rect x="72" y="50" width="5" height="1.4" rx="0.7" fill="#6EE7B7" opacity="0.6"/>
+<rect x="94" y="50" width="5" height="1.4" rx="0.7" fill="#6EE7B7" opacity="0.6"/>
+<g transform="translate(52, 26)">
+  <path d="M0 22 L0 7 Q0 3 3 3 L22 3 L27 1 Q30 0 33 1 L37 3 L39 3 Q42 3 42 7 L42 22 Q42 26 39 26 L3 26 Q0 26 0 22Z" fill="#FFF8EC" stroke="white" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M0 18 L42 18 L42 22 Q42 26 39 26 L3 26 Q0 26 0 22Z" fill="#E8D9BC"/>
+  <path d="M24 1 Q30 0 33 1 L37 3 L24 3Z" fill="#085041"/>
+  <rect x="3"  y="6"  width="18" height="8"  rx="1.2" fill="rgba(255,255,255,0.85)" stroke="#085041" stroke-width="0.6"/>
+  <rect x="25" y="2"  width="13" height="9"  rx="1.2" fill="rgba(255,255,255,0.75)" stroke="#085041" stroke-width="0.6"/>
+  <rect x="3"  y="3"  width="18" height="1.5" rx="0.8" fill="#085041"/>
+  <line x1="8"  y1="3" x2="8"  y2="5" stroke="#085041" stroke-width="0.8"/>
+  <line x1="13" y1="3" x2="13" y2="5" stroke="#085041" stroke-width="0.8"/>
+  <line x1="18" y1="3" x2="18" y2="5" stroke="#085041" stroke-width="0.8"/>
+  <path d="M3 3 L3 0 L14-1 L21 3" fill="rgba(29,158,117,0.45)" stroke="#085041" stroke-width="0.7" stroke-linejoin="round"/>
+  <rect x="3" y="-1" width="18" height="1.5" rx="0.8" fill="#085041"/>
+  <line x1="23" y1="3" x2="23" y2="18" stroke="white" stroke-width="0.6" stroke-dasharray="1.5,1.5"/>
+  <path d="M4  26 Q4  34 10 34 Q16 34 16 26" fill="#E8D9BC" stroke="#085041" stroke-width="0.7"/>
+  <path d="M26 26 Q26 34 32 34 Q38 34 38 26" fill="#E8D9BC" stroke="#085041" stroke-width="0.7"/>
+  <circle cx="10" cy="30" r="5"   fill="#1a1a1a"/>
+  <circle cx="10" cy="30" r="2.8" fill="#2a2a2a"/>
+  <circle cx="10" cy="30" r="1.1" fill="#555"/>
+  <circle cx="32" cy="30" r="5"   fill="#1a1a1a"/>
+  <circle cx="32" cy="30" r="2.8" fill="#2a2a2a"/>
+  <circle cx="32" cy="30" r="1.1" fill="#555"/>
+</g>
+<text x="120" y="26" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="22" font-weight="700" letter-spacing="-0.03em" fill="#1a1a1a">which<tspan fill="#1D9E75">camper</tspan></text>
+<text x="120" y="41" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9.5" font-weight="600" fill="#1a1a1a" letter-spacing="0.03em">find your perfect match</text>
+</svg></a>
+    <div class="nav-links">
+      <a href="campervan-matcher-v4.html">Campervans</a>
+      <a href="motorhome-matcher.html">Motorhomes</a>
+      <a href="#how">How it works</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-pill">Free — No signup required</div>
+    <h1>Find your perfect<br><span>campervan or motorhome</span></h1>
+    <p>Answer a few questions and we'll match you to the right vehicle, layout, brand and specific model — then show you exactly where to buy it in the UK.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">32</div><div class="stat-lbl">questions across<br>both tools</div></div>
+      <div class="stat"><div class="stat-num">25+</div><div class="stat-lbl">van and motorhome<br>brands covered</div></div>
+      <div class="stat"><div class="stat-num">40+</div><div class="stat-lbl">specific models<br>with real prices</div></div>
+      <div class="stat"><div class="stat-num">2 min</div><div class="stat-lbl">average time<br>to get results</div></div>
+    </div>
+  </div>
+
+  <!-- CHOICE -->
+  <div class="choice-section">
+    <h2>What are you looking for?</h2>
+    <p>Choose your vehicle type to get started</p>
+    <div class="choice-grid">
+
+      <!-- VAN -->
+      <a class="choice-card" href="campervan-matcher-v4.html">
+        <div class="choice-icon"><svg width="64" height="44" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 36 L2 14 Q2 8 7 8 L40 8 L50 4 Q54 2 58 4 L62 8 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#1D9E75" stroke="#085041" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M2 30 L62 30 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#0F6E56"/>
+  <path d="M42 4 Q54 2 58 4 L62 8 L42 8Z" fill="#085041"/>
+  <rect x="5" y="12" width="32" height="14" rx="2" fill="rgba(225,245,238,0.85)" stroke="#085041" stroke-width="0.8"/>
+  <rect x="44" y="6" width="16" height="14" rx="2" fill="rgba(225,245,238,0.75)" stroke="#085041" stroke-width="0.8"/>
+  <rect x="5" y="8" width="33" height="2.5" rx="1" fill="#085041"/>
+  <path d="M5 8 L5 3 L22 2 L38 8" fill="rgba(29,158,117,0.4)" stroke="#085041" stroke-width="0.8" stroke-linejoin="round"/>
+  <rect x="5" y="2" width="33" height="2.5" rx="1" fill="#085041"/>
+  <line x1="41" y1="8" x2="41" y2="30" stroke="#085041" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <path d="M6 40 Q6 50 14 50 Q22 50 22 40" fill="#0F6E56" stroke="#085041" stroke-width="1"/>
+  <path d="M42 40 Q42 50 50 50 Q58 50 58 40" fill="#0F6E56" stroke="#085041" stroke-width="1"/>
+  <circle cx="14" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="14" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="14" cy="46" r="1.5" fill="#555"/>
+  <circle cx="50" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="50" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="50" cy="46" r="1.5" fill="#555"/>
+</svg></div>
+        <div class="choice-tag tag-van">Van conversion</div>
+        <div class="choice-title">Campervan</div>
+        <div class="choice-subtitle">A converted panel van — drives like a car, lives like a home</div>
+        <ul class="choice-features">
+          <li>Easy to drive and park daily</li>
+          <li>VW, Mercedes, Ford, Fiat, Toyota and more</li>
+          <li>Named UK converters — Danbury, WildAx, Bilbo's, Jerba</li>
+          <li>Specific models matched to your answers</li>
+          <li>£8,000 to £95,000 budget range</li>
+          <li>17 tailored questions</li>
+        </ul>
+        <div class="choice-btn">Start van quiz →</div>
+      </a>
+
+    <!-- MOTORHOME -->
+      <a class="choice-card motorhome" href="motorhome-matcher.html">
+        <div class="choice-icon"><svg width="64" height="44" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 36 L2 6 Q2 2 6 2 L58 2 Q62 2 62 6 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#1e3a5f" stroke="#152d4a" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M2 30 L62 30 L62 36 Q62 40 58 40 L6 40 Q2 40 2 36Z" fill="#152d4a"/>
+  <rect x="36" y="5" width="23" height="18" rx="2" fill="rgba(219,234,254,0.85)" stroke="#152d4a" stroke-width="0.8"/>
+  <rect x="5" y="7" width="28" height="10" rx="1.5" fill="rgba(219,234,254,0.75)" stroke="#152d4a" stroke-width="0.8"/>
+  <rect x="5" y="19" width="28" height="8" rx="1.5" fill="rgba(219,234,254,0.6)" stroke="#152d4a" stroke-width="0.8"/>
+  <line x1="14" y1="7" x2="14" y2="17" stroke="#152d4a" stroke-width="0.8"/>
+  <line x1="23" y1="7" x2="23" y2="17" stroke="#152d4a" stroke-width="0.8"/>
+  <line x1="34" y1="2" x2="34" y2="30" stroke="#152d4a" stroke-width="1" stroke-dasharray="2,2"/>
+  <rect x="2" y="2" width="60" height="3" rx="1" fill="#1e3a5f"/>
+  <rect x="2" y="28" width="60" height="2" rx="0" fill="#1e3a5f"/>
+  <path d="M5 40 Q5 50 13 50 Q21 50 21 40" fill="#152d4a" stroke="#1e3a5f" stroke-width="1"/>
+  <path d="M43 40 Q43 50 51 50 Q59 50 59 40" fill="#152d4a" stroke="#1e3a5f" stroke-width="1"/>
+  <circle cx="13" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="13" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="13" cy="46" r="1.5" fill="#555"/>
+  <circle cx="51" cy="46" r="7" fill="#1a1a1a"/>
+  <circle cx="51" cy="46" r="4" fill="#2a2a2a"/>
+  <circle cx="51" cy="46" r="1.5" fill="#555"/>
+  <rect x="58" y="8" width="3" height="5" rx="1" fill="#FEF3C7"/>
+  <rect x="6" y="20" width="8" height="10" rx="1" fill="rgba(30,64,175,0.5)" stroke="#1e3a5f" stroke-width="0.8"/>
+  <circle cx="13" cy="25" r="0.8" fill="#94a3b8"/>
+</svg></div>
+        <div class="choice-tag tag-mh">Coachbuilt motorhome</div>
+        <div class="choice-title">Motorhome</div>
+        <div class="choice-subtitle">A purpose-built leisure vehicle — more space, more facilities</div>
+        <ul class="choice-features">
+          <li>Low profile, overcab, A-class and semi-integrated</li>
+          <li>British, German, French and Italian brands</li>
+          <li>Auto-Trail, Swift, Hymer, Bürstner, Adria and more</li>
+          <li>Specific models with real prices and links</li>
+          <li>£40,000 to £200,000+ budget range</li>
+          <li>19 tailored questions</li>
+        </ul>
+        <div class="choice-btn">Start motorhome quiz →</div>
+      </a>
+
+      </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how" id="how">
+    <h2>How WhichCamper works</h2>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-title">Answer the questions</div>
+        <div class="step-desc">Tell us about your travel style, budget, who you're travelling with and what matters most to you</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-title">Get matched</div>
+        <div class="step-desc">Our scoring engine compares your answers against every van and motorhome in our database to find your best fits</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-title">Go buy it</div>
+        <div class="step-desc">See specific models, UK converter brands, real prices, running costs and direct links to listings and dealer websites</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <div class="why">
+    <h2>Why use WhichCamper?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Specific model recommendations</div>
+        <div class="why-desc">Not just "buy a Sprinter" — we recommend the WildAx Aurora, Danbury Surf or Hymer B-Class depending on your exact answers</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🇬🇧</div>
+        <div class="why-title">Built for UK buyers</div>
+        <div class="why-desc">Country lanes, standard driving licences, ferry costs, UK campsite sizes — all factored in. Not a generic European guide</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚖️</div>
+        <div class="why-title">Honest about trade-offs</div>
+        <div class="why-desc">We tell you when a van is too wide for country lanes, when a licence upgrade is needed and what red flags to watch for buying used</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💷</div>
+        <div class="why-title">Real running costs</div>
+        <div class="why-desc">Every result includes an interactive running costs estimator — fuel, insurance, road tax, habitation service and breakdown cover</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <div class="why-title">Used buyer protection</div>
+        <div class="why-desc">Budget buyers automatically get a detailed used vehicle checklist — damp, tyres, gas safety, payload, HPI and more</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔗</div>
+        <div class="why-title">Direct links to buy</div>
+        <div class="why-desc">AutoTrader, Quirky Campers, Out and About Live, converter websites — we send you straight to the right place to buy</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRANDS -->
+  <div class="brands">
+    <h2>Brands covered</h2>
+    <p>We cover every major UK campervan converter and motorhome manufacturer</p>
+    <div class="brand-list">
+      <span class="brand-pill">VW Transporter</span>
+      <span class="brand-pill">Mercedes Sprinter</span>
+      <span class="brand-pill">Ford Transit</span>
+      <span class="brand-pill">Fiat Ducato</span>
+      <span class="brand-pill">Iveco Daily</span>
+      <span class="brand-pill">Danbury</span>
+      <span class="brand-pill">WildAx</span>
+      <span class="brand-pill">Bilbo's</span>
+      <span class="brand-pill">Jerba</span>
+      <span class="brand-pill">Wellhouse</span>
+      <span class="brand-pill">Murvi</span>
+      <span class="brand-pill">Jobl</span>
+      <span class="brand-pill">Consort</span>
+      <span class="brand-pill">Auto-Trail</span>
+      <span class="brand-pill">Swift</span>
+      <span class="brand-pill">Bailey</span>
+      <span class="brand-pill">Hymer</span>
+      <span class="brand-pill">Bürstner</span>
+      <span class="brand-pill">Adria</span>
+      <span class="brand-pill">Dethleffs</span>
+      <span class="brand-pill">Chausson</span>
+      <span class="brand-pill">Roller Team</span>
+      <span class="brand-pill">Carthago</span>
+      <span class="brand-pill">Elddis</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>WhichCamper — free, independent advice for UK campervan and motorhome buyers<br>
+    <a href="campervan-matcher-v4.html">Campervan finder</a> &nbsp;·&nbsp;
+    <a href="motorhome-matcher.html">Motorhome finder</a><br><br>
+    Prices and specifications correct at time of publishing. Always verify with dealers before purchase.<br>
+    WhichCamper is independent and not affiliated with any manufacturer or dealer.</p>
+  </footer>
+
+</div>
+</body>
+</html>
